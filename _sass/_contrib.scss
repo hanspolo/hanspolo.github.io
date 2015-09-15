@@ -2,3 +2,7 @@ footer {
   border-top: 1px solid $gray-lighter;
   margin-top: $line-height-computed;
 }
+
+body > .jumbotron:first-of-type {
+  margin-top: $navbar-height;
+}
