@@ -6,3 +6,11 @@ footer {
 body > .jumbotron:first-of-type {
   margin-top: $navbar-height;
 }
+
+.space-top {
+  padding-top: $line-height-computed;
+}
+
+.space-bottom {
+  padding-top: $line-height-computed;
+}
