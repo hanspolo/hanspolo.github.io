@@ -1,15 +1,13 @@
 ---
 layout: default
 ---
-<div class="jumbotron">
+<section class="no-space-bottom">
   <div class="container">
     <h1>{{ page.title }}</h1>
     <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </div>
-</div>
 
-<div class="post container">
-  <article class="post-content">
     {{ content }}
-  </article>
-</div>
+  </div>
+</section>
+
+
