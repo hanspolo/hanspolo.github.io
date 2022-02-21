@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de-de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Clean Code Developer - Roter Grad: Don&#39;t repeat yourself und Boy Scout Rule</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+</head>
+<body>
+	<header>
+	<div>
+		<a href="http://blog.hanspolo.net/">Hanspolo&#39;s Blog</a>
+		
+	</div>
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Clean Code Developer - Roter Grad: Don&#39;t repeat yourself und Boy Scout Rule</h1>
+			<time datetime="2022-02-21T00:00:00">21.02.2022</time>
+			
+			<span id="categories">
+				
+				<a href="/categories/development">Development</a>
+				
+			</span>
+			
+			<div>
+				<p>Hallo Mensch,</p>
+<p>an deinem ersten Tag in dem roten Grad will ich dir die ersten Praktiken und Prinzipien vorstellen.
+Hierbei handelt es sich um das Prinzip &ldquo;Don&rsquo;t repeat yourself&rdquo; und die Praxis &ldquo;Boy Scout Rule&rdquo; bzw. die &ldquo;Pfadfinderregel&rdquo;.</p>
+<h2 id="dry">DRY</h2>
+<p>Beginnen wollen wir mit Don&rsquo;t repeat yourself, aka. DRY.
+Das Prinzip ist schnell erklärt: Schreibe den selben Code nicht mehrfach.
+Du willst z.B. an verschiedenen Stellen eine Liste bereinigen? Dann schreibe eine Funktion die sich darum kümmert und verwende sie an allen Stellen, die diese Funktionalität benötigen.</p>
+<p>Warum? Ganz einfach. An allen Stellen verhält sich die Bereinigung der Liste exakt gleich.
+Das selbe kannst du auch mit Copy&amp;Paste erreichen.
+Wenn sich jetzt aber etwas an den Anforderungen ändert, musst du es an allen Stellen anpassen, anstatt sie nur einmal zu bearbeiten.
+Wie schnell vergisst man dabei vielleicht sogar eine Stelle? Oder vertippt sich bei einer?</p>
+<p>Schnell wird klar, du willst Code so oft wie möglich wiederverwenden. So kannst du dir Mühe geben, diesen Code bestmöglich zu bauen. Bestenfalls erstellst du auch gleich noch automatisierte Unittests. So hast du langfristig einen stabilen und leicht zu wartenden Code.</p>
+<p>Also, auch wenn mal schnell gehen muss. Nehm dir kurz die Zeit und überleg, wie man Funktionalität wiederverwendbar macht. So gewinnst du am Ende sehr viel mehr Zeit, als wenn du es schnell irgendwie in die bestehende Funktion reinquetscht.</p>
+<h2 id="pfadfinderregel">Pfadfinderregel</h2>
+<p>Kommen wir nun zur Pfadfinderregel, bzw. der Boy Scout Rule.
+Auch diese lässt sich mit wenigen Worten beschreiben:
+&ldquo;Hinterlasse einen Ort immer in einem besseren Zustand, als du ihn vorgefunden hast.&rdquo;</p>
+<p>Was bedeutet das für die Arbeit als Programmierer?
+Du arbeitst gerade an einem Code, der schon eine Weile existiert. Z.B. soll die Reihenfolge einer Suche umgedreht werden. Wer mag schon absteigende Personen? Aufsteigend sollen sie sein!</p>
+<p>Dabei fällt dir ein Rechtschreibfehler in einem String auf. Oder du siehst, dass hier noch ein Fehler auftreten kann, der zur Zeit nicht behandelt wird.</p>
+<p>Dann ist jetzt deine Chance der Welt (oder zumindest der Person, die den PR reviewt) zu zeigen, was für ein großartiger Pfadfinder du hättest sein können.
+Pass es eben kurz an und du hast diesen Ort in einem besseren Zustand hinterlassen, als du ihn vorgefunden hast.</p>
+
+			</div>
+			
+			<div id="tags">
+				
+				<div><a href="/tags/education">education</a></div>
+				
+			</div>
+			
+			
+		</article>
+	</main>
+
+
+	<footer>
+	<div>
+		&copy; 2022 <a href="http://blog.hanspolo.net/">Hanspolo&#39;s Blog</a>
+	</div>
+</footer>
+
+</body>
+</html>

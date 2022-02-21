@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>education on Hanspolo&#39;s Blog</title>
+    <link>http://blog.hanspolo.net/tags/education/</link>
+    <description>Recent content in education on Hanspolo&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-de</language>
+    <lastBuildDate>Mon, 21 Feb 2022 00:00:00 +0100</lastBuildDate><atom:link href="http://blog.hanspolo.net/tags/education/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clean Code Developer - Roter Grad: Don&#39;t repeat yourself und Boy Scout Rule</title>
+      <link>http://blog.hanspolo.net/posts/20220221-ccd-day-1/</link>
+      <pubDate>Mon, 21 Feb 2022 00:00:00 +0100</pubDate>
+      
+      <guid>http://blog.hanspolo.net/posts/20220221-ccd-day-1/</guid>
+      <description>An dem ersten Tag im roten Grad stelle ich zwei Regeln vor, die für deinen neuen Alltag wichtig sind.</description>
+    </item>
+    
+  </channel>
+</rss>
