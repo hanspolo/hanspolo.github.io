@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de-de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Clean Code Developer - Roter Grad: Keep it simple, stupid und Root Cause Analysis</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+</head>
+<body>
+	<header>
+	<div>
+		<a href="http://blog.hanspolo.net/">Hanspolo&#39;s Blog</a>
+		
+	</div>
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Clean Code Developer - Roter Grad: Keep it simple, stupid und Root Cause Analysis</h1>
+			<time datetime="2022-02-22T00:00:00">22.02.2022</time>
+			
+			<span id="categories">
+				
+				<a href="/categories/development">Development</a>
+				
+			</span>
+			
+			<div>
+				<p>Nachdem ich gestern DRY und die Pfadfinderregel beschrieben habe, möchte ich heute die nächsten beiden Teile des roten Grades vorstellen.
+Hierbei handelt es sich um &ldquo;Keep it simple, stupid&rdquo; und der &ldquo;Root Cause Analysis&rdquo;.</p>
+<h2 id="kiss">KISS</h2>
+<p>Dieses Akronym kann verschieden ausgeschrieben werden. Neben &ldquo;Keep it simple, stupid&rdquo; (Halt es einfach, Dummkopf) gibt es unter anderem auch &ldquo;Keep it simple and stupid&rdquo; (Halt es einfach und dumm).
+In jedem Fall ist hier aber gemeint, dass man nicht den klügsten Code schreiben soll, den die Menschheit je gesehen hat.
+Denn das birgt die Gefahr, das niemand außer dir diesen Code versteht.
+Vielleicht verstehst sogar du diesen Code in ein paar Monaten schon nicht mehr.
+Und auch wenn du glaubst, dass könne ja gar nicht sein, dann glaub mir, du irrst.</p>
+<p>Finde für deine Anwendung die einfachste Lösung.</p>
+<ul>
+<li>Du kannst bei einer Fallunterscheidung 100 verschiedene Fälle abdecken? Decke nur die ab, die wirklich eintreten können.</li>
+<li>Du kannst neben der Adresse noch die Farbe des Hauses mit ermitteln? Bringt das wirklich einen Mehrwert.</li>
+</ul>
+<p>Mache dir Gedanken, ob ein größerer Aufwand oder eine höhere Komplexität wirklich zum Erreichen des Zieles der Software beitragen.
+Oft braucht es nicht die eierlegende Wollmilchsau, sondern deine Software wird viel besser, wenn sie das, was sie tun soll, wirklich gut und zuverlässig tut.</p>
+<h2 id="root-cause-analysis">Root Cause Analysis</h2>
+<p>Auch diese Praxis soll, ähnlich wie die Pfadfinderregel gestern, dafür sorgen, dass unsere Software wandelbar bleibt.
+Hier räumst du aber nicht einfach nur auf und hinterlässt die Welt bzw. unsere Codebasis besser als sie ist.
+Sondern versuchst, wenn du über etwas unvorhergesehenes, einen Fehler oder etwas, das wir nicht verstehen, stolperst, nachzuforschen.</p>
+<p>Anstatt z.B. bei einem Fehler einfach ein <code>if</code> zu nutzen, damit der Fehler nicht weiter auftritt, solltest du verstehen, warum dieser Fall überhaupt auftreten kann.
+Vielleicht kannst du damit dann sogar ein größeres Problem beheben, als wenn du nur kurz irgendwo ein Pflaster drauf klebst.
+Und wenn nicht, dann hast du zumindest etwas dabei gelernt, weil du dich mit Code beschäftigt hast, den du vermutlich noch nicht kanntest.
+So trägt diese Praxis auch zur Verbesserung deiner Fähigkeiten bei.</p>
+
+			</div>
+			
+			<div id="tags">
+				
+				<div><a href="/tags/education">education</a></div>
+				
+			</div>
+			
+			
+		</article>
+	</main>
+
+
+	<footer>
+	<div>
+		&copy; 2022 <a href="http://blog.hanspolo.net/">Hanspolo&#39;s Blog</a>
+	</div>
+</footer>
+
+</body>
+</html>
