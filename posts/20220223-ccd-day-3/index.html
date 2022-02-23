@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de-de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Clean Code Developer - Roter Grad: Beware of Premature Optimization und Version Control System</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+</head>
+<body>
+	<header>
+	<div>
+		<a href="http://blog.hanspolo.net/">Hanspolo&#39;s Blog</a>
+		
+	</div>
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Clean Code Developer - Roter Grad: Beware of Premature Optimization und Version Control System</h1>
+			<time datetime="2022-02-23T00:00:00">23.02.2022</time>
+			
+			<span id="categories">
+				
+				<a href="/categories/development">Development</a>
+				
+			</span>
+			
+			<div>
+				<h2 id="beware-of-premature-optimization">Beware of Premature Optimization</h2>
+<p><em><a href="https://clean-code-developer.de/die-grade/roter-grad/#Beware_of_Premature_Optimization">Ergänzende eigene Gedanken zu clean-code-developer.de</a></em></p>
+<p>Das Prinzip, dass ich euch heute vorstelle, sagt im Grunde folgendes aus:
+Optimiere nichts, was nicht wirklich nötig ist.</p>
+<p>Schon oft habe ich gesehen, dass für ein kleines Projekt noch vor der ersten Zeile Code bereits unendlich viele Gedanken in die Skalierbarkeit über die ganze Welt gemacht wurden. Anstatt zunächst das Projekt umzusetzen und zu schauen, ob es auch überhaupt jemand nutzt.</p>
+<p>Aber auch im Alltag stolpere ich immer wieder über Code, den ich gerne ständig optimieren möchte. Dabei steht aber die Optimierung oft in keinem sinnvollen Verhältnis zum Nutzen der Optimierung.</p>
+<p>Oft stehen Optimierungen sogar im Konflikt mit anderen Zielen, die das Projekt hat.
+Solche Ziele können zum einen sein, dass der Code schnell oder sparsam läuft, aber viel regelmäßiger stehen bei größeren Softwareprojekten Sicherheit, Wartbarkeit, Erweiterbarkeit und auch die Stabilität im Vordergrund. Eine Optimierung hin zur Schnelligkeit kann dazu führen, dass eine der wichtigeren Eigenschaften der Software darunter leidet.
+Meist stehen auch Schnelligkeit und Sparsamkeit in Konflikt, z.B. wenn der Code schneller wird, wenn mehr Daten zwischengespeichert werden.</p>
+<p>Daraus sollte folgen, dass Optimierungen immer auch begründet sein sollten.
+Bevor du versuchst 1% RAM zu sparen, solltest du sicher sein, dass diese 1% RAM wirklich den Erfolg deines Projektes gefährden.</p>
+<h2 id="version-control-system">Version Control System</h2>
+<p><em><a href="https://clean-code-developer.de/die-grade/roter-grad/#Version_Control_System">Ergänzende eigene Gedanken zu clean-code-developer.de</a></em></p>
+<p>Mein Alltag als Entwicklers besteht in den seltensten Fällen daraus, dass ich kleine Scripte alleine vor mich hin programmiere (auch wenn das nicht ausschließt ein Version Control System zu nutzen).
+Viel öfter arbeite ich allerdings mit anderen zusammen, meist auch an etwas komplexerem Code.</p>
+<p>Dadurch entstehen 2 Bedürfnisse.
+Zum einen, möchte ich eine Historie meines Codes haben, einzelne Änderungen nachvollziehen können, ggf. auch rückgängig machen.
+Das andere ist, dass ich den Quellcode mit den anderen Entwicklern teilen, aber trotzdem noch unabhängig von diesen arbeiten möchte.</p>
+<p>Diese Bedürfnisse werden von den gängigsten VCS abgedeckt.
+Bei mir ist das Mittlerweile durchgängig <code>git</code> (erfahre mehr unter <a href="https://git-scm.com/">https://git-scm.com/</a>).
+Es existieren aber auch andere, z.B. <code>mercurial</code>, <code>svn</code> und noch viele mehr.
+In meinem Leben hat <code>git</code> aber alle anderen vertrieben.</p>
+<p>Was die meisten aber gemeinsam haben, sind folgende Features:</p>
+<ul>
+<li>Geänderter Code kann als kleines Paket in die Historie des Projektes angehangen werden (<code>git commit</code>)</li>
+<li>Es lassen sich alle Änderungen in dieser Historie anschauen (<code>git log</code>)</li>
+<li>Ist einer Änderung nicht zufriedenstellend, kann diese aus der Historie entfernt werden (<code>git revert</code>)</li>
+<li>Andere Entwickler können sich diese Historie auf ihrem Rechner laden und können eigene Änderungen in die Historie hinzufügen (<code>git pull</code>)</li>
+<li>Ein Entwickler kann sich einen Stand in der Historie des Codes nehmen, eine Abzweigung starten und ggf. später wieder zusammen führen (<code>git checkout</code> bzw. <code>git branch</code>)</li>
+</ul>
+<p><code>git</code> selbst funktioniert unheimlich gut bei Dateien, die in einem Textformat vorliegen.
+Du kannst es also sogar für Sachen benutzen, die nichts mit Programmieren zu tun haben.
+Z.B. wenn du deine Bachelorarbeit schreibst.
+Auch hier profitierst du vielleicht von der Versionierung.
+Binäre Dateien lassen sich leider nicht ganz so gut versionieren.</p>
+
+			</div>
+			
+			<div id="tags">
+				
+				<div><a href="/tags/education">education</a></div>
+				
+			</div>
+			
+			
+		</article>
+	</main>
+
+
+	<footer>
+	<div>
+		&copy; 2022 <a href="http://blog.hanspolo.net/">Hanspolo&#39;s Blog</a>
+	</div>
+</footer>
+
+</body>
+</html>

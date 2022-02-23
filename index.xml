@@ -6,7 +6,16 @@
     <description>Recent content on Hanspolo&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-de</language>
-    <lastBuildDate>Tue, 22 Feb 2022 00:00:00 +0100</lastBuildDate><atom:link href="http://blog.hanspolo.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Feb 2022 00:00:00 +0100</lastBuildDate><atom:link href="http://blog.hanspolo.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Clean Code Developer - Roter Grad: Beware of Premature Optimization und Version Control System</title>
+      <link>http://blog.hanspolo.net/posts/20220223-ccd-day-3/</link>
+      <pubDate>Wed, 23 Feb 2022 00:00:00 +0100</pubDate>
+      
+      <guid>http://blog.hanspolo.net/posts/20220223-ccd-day-3/</guid>
+      <description>Wir erreichen heute die Hälfte der Themen des roten Grades.</description>
+    </item>
+    
     <item>
       <title>Clean Code Developer - Roter Grad: Keep it simple, stupid und Root Cause Analysis</title>
       <link>http://blog.hanspolo.net/posts/20220222-ccd-day-2/</link>
@@ -23,6 +32,15 @@
       
       <guid>http://blog.hanspolo.net/posts/20220221-ccd-day-1/</guid>
       <description>An dem ersten Tag im roten Grad stelle ich zwei Regeln vor, die für deinen neuen Alltag wichtig sind.</description>
+    </item>
+    
+    <item>
+      <title>Programmierung</title>
+      <link>http://blog.hanspolo.net/development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.hanspolo.net/development/</guid>
+      <description>foobar </description>
     </item>
     
   </channel>

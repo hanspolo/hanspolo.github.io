@@ -3,27 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://blog.hanspolo.net/categories/</loc>
-    <lastmod>2022-02-22T00:00:00+01:00</lastmod>
+    <lastmod>2022-02-23T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.hanspolo.net/posts/20220223-ccd-day-3/</loc>
+    <lastmod>2022-02-23T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.hanspolo.net/categories/development/</loc>
+    <lastmod>2022-02-23T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.hanspolo.net/tags/education/</loc>
+    <lastmod>2022-02-23T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.hanspolo.net/</loc>
+    <lastmod>2022-02-23T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.hanspolo.net/posts/</loc>
+    <lastmod>2022-02-23T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.hanspolo.net/tags/</loc>
+    <lastmod>2022-02-23T00:00:00+01:00</lastmod>
   </url><url>
     <loc>http://blog.hanspolo.net/posts/20220222-ccd-day-2/</loc>
     <lastmod>2022-02-22T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>http://blog.hanspolo.net/categories/development/</loc>
-    <lastmod>2022-02-22T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://blog.hanspolo.net/tags/education/</loc>
-    <lastmod>2022-02-22T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://blog.hanspolo.net/</loc>
-    <lastmod>2022-02-22T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://blog.hanspolo.net/posts/</loc>
-    <lastmod>2022-02-22T00:00:00+01:00</lastmod>
-  </url><url>
-    <loc>http://blog.hanspolo.net/tags/</loc>
-    <lastmod>2022-02-22T00:00:00+01:00</lastmod>
-  </url><url>
     <loc>http://blog.hanspolo.net/posts/20220221-ccd-day-1/</loc>
     <lastmod>2022-02-21T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://blog.hanspolo.net/development/</loc>
   </url>
 </urlset>
