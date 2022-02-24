@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de-de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Clean Code Developer - Roter Grad: Favour Composition over Inheritance und Simple Refactorings</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+</head>
+<body>
+	<header>
+	<div>
+		<a href="http://blog.hanspolo.net/">Hanspolo&#39;s Blog</a>
+		
+	</div>
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Clean Code Developer - Roter Grad: Favour Composition over Inheritance und Simple Refactorings</h1>
+			<time datetime="2022-02-24T00:00:00">24.02.2022</time>
+			
+			<span id="categories">
+				
+				<a href="/categories/development">Development</a>
+				
+			</span>
+			
+			<div>
+				<h2 id="favour-composition-over-inheritance">Favour Composition over Inheritance</h2>
+<p>*<a href="https://clean-code-developer.de/die-grade/roter-grad/#Favour_Composition_over_Inheritance_FCoI">Ergänzende eigene Gedanken zu clean-code-developer.de</a></p>
+<p>Mit Favour Composition over Inheritance kommt ein Schwergewicht in unseren Baukasten, das ein wenig mehr Erklärung benötigt.</p>
+<p>Eine Eigenschaft von objektorientierten Programmiersprachen ist die Vererbung von Klassen.
+Hier zunächst ein kleines Beispiel in ruby:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">eat</span>()
+    <span style="color:#f92672">...</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Duck</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">Animal</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Die Klasse <code>Duck</code> erbt hierbei die Funktion <code>eat()</code> von <code>Animal</code>. Irgendwie beschreibt das eine Ente aber bisher noch nicht zur Genüge.
+Eine Ente hat außerdem Federn, kann fliegen, hat einen Schnabel, anders als andere Tiere, die mit Schnauze und Reißzähnen ausgestattet sind und schwimmt dabei vergnügt auf einem See herum.
+Um diese Eigenschaften über Vererbung abzudecken, müsstest du ggf. die komplette Tierwelt mit allen ihren Verästelungen abbilden.</p>
+<p>Manche Sprachen bieten hier Mehrfachvererbung.
+Unsere Ente könnte also gleichzeitig von <code>Animal</code>, <code>FlyingCreature</code> und <code>SwimmingCreature</code> erben.
+Hierbei entstehen sehr harte Abhängigkeiten.</p>
+<p>Ein Ziel von Code sollte aber eigentlich immer eine lose Kopplung sein.
+Lose Kopplung macht das System einfacher wandelbar, wartbar und testbarer.</p>
+<p>Wie sieht also eine Komposition einer Ente aus, wenn sie zum Einen ein Lebewesen, dass essen muss, ist, aber auch fliegen und schwimmen kann?
+In einem einfachen Fall vielleicht ungefähr so:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Duck</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">initialize</span>(eatingAnimal, flyingAnimal, swimmingAnimal)
+    @eater <span style="color:#f92672">=</span> eatingAnimal
+    @flyer <span style="color:#f92672">=</span> flyingAnimal
+    @swimmer <span style="color:#f92672">=</span> swimmingAnimal
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fly</span>()
+    @flyer<span style="color:#f92672">.</span>fly()
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">Duck</span><span style="color:#f92672">.</span>new(<span style="color:#66d9ef">Animal</span>, <span style="color:#66d9ef">FlyingCreature</span>, <span style="color:#66d9ef">SwimmingCreature</span>)
+</code></pre></td></tr></table>
+</div>
+</div><p>In typisierten Sprachen und auch in Ruby 3.0 sollte man Interfaces benutzen, um z.B. sicherzustellen, dass <code>flyingAnimal</code> die Methode <code>fly()</code> auch wirklich definiert.
+Ein Beispiel in der Sprache <code>go</code>, die Interfaces und Typisierung unterstützt, würde dann so aussehen:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Flyer</span> <span style="color:#66d9ef">interface</span> {
+  <span style="color:#a6e22e">fly</span>()
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Eater</span> <span style="color:#66d9ef">interface</span> {
+  <span style="color:#a6e22e">eat</span>()
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Swimmer</span> <span style="color:#66d9ef">interface</span> {
+  <span style="color:#a6e22e">swim</span>()
+}
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Duck</span> <span style="color:#66d9ef">struct</span> {
+  <span style="color:#a6e22e">eater</span> <span style="color:#a6e22e">Eater</span>
+  <span style="color:#a6e22e">flyer</span> <span style="color:#a6e22e">Flyer</span>
+  <span style="color:#a6e22e">swimmer</span> <span style="color:#a6e22e">Swimmer</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewDuck</span>(<span style="color:#a6e22e">eater</span> <span style="color:#a6e22e">Eater</span>, <span style="color:#a6e22e">flyer</span> <span style="color:#a6e22e">Flyer</span>, <span style="color:#a6e22e">swimmer</span> <span style="color:#a6e22e">Swimmer</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">Duck</span> {
+  <span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Duck</span>{
+    <span style="color:#a6e22e">eater</span>: <span style="color:#a6e22e">eater</span>,
+    <span style="color:#a6e22e">flyer</span>: <span style="color:#a6e22e">flyer</span>,
+    <span style="color:#a6e22e">swimmer</span>: <span style="color:#a6e22e">swimmer</span>,
+  }
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">d</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Duck</span>) <span style="color:#a6e22e">fly</span>() {
+  <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">fly</span>()
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>Da go keine Vererbung mitbringt, ist hier die Frage nach Vererbung oder Komposition auch schnell beantwortet.
+Die Verwendung von Interfaces hat hierbei den Vorteil, dass wir der Ente alles übergeben können, was dieses Interface erfüllt.
+Ob das nun eine <code>FishEatingCreature</code> oder eine <code>BreadFromGrannieEatingCreature</code> ist, bleibt hier dem Aufrufer überlassen.</p>
+<h2 id="simple-refactorings">Simple Refactorings</h2>
+<p>*<a href="https://clean-code-developer.de/die-grade/roter-grad/#Simple_Refactorings">Ergänzende eigene Gedanken zu clean-code-developer.de</a></p>
+<p>Bei dieser Praxis geht es vor allem darum, dass du die Prinzipien, die du gelernt hast, nicht nur auf neuen, sondern auch auf bestehenden Code anwendest.
+Wenn es einfach möglich ist, so versuche, dass sich der Code, den du vor dir hast, ähnlich der Pfadfinderregel ein wenig verbessert.</p>
+<p>Der Artikel selbst benötigt meiner Meinung nach gar nicht so viel Ergänzung, daher verweise ich nur auf ihn.</p>
+
+			</div>
+			
+			<div id="tags">
+				
+				<div><a href="/tags/education">education</a></div>
+				
+			</div>
+			
+			
+		</article>
+	</main>
+
+
+	<footer>
+	<div>
+		&copy; 2022 <a href="http://blog.hanspolo.net/">Hanspolo&#39;s Blog</a>
+	</div>
+</footer>
+
+</body>
+</html>
